@@ -1,0 +1,36 @@
+<h1>Songs</h1>
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Album</th>
+      <th>Genre</th>
+      <th>Style</th>
+      <th>Country</th>
+      <th>Release Year</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <% if song.user == current_user%>
+      <tr>
+        <td><h4><%= link_to song.name, song %> - <%= song.artist %></h4></td>
+        <td>album</td>
+        <td><%= song.genre %></td>
+        <td><%= song.style %></td>
+        <td><%= song.country %></td>
+        <td><%= song.release_year %></td>
+        <td><%= link_to 'Edit', edit_song_path(song), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Song', new_song_path, class:"btn btn-primary btn-lg" %>

@@ -1,0 +1,59 @@
+<%= form_with(model: song) do |form| %>
+  <% if song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+        <% song.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :artist %>
+    <%= form.text_field :artist, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :genre %>
+    <%= form.text_field :genre, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :style %>
+    <%= form.text_field :style, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :country %>
+    <%= form.text_field :country, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :release_date %>
+    <%= form.text_field :release_date, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :length %>
+    <%= form.text_field :length, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.number_field :user_id,
+     id: :song_user_id, class:"form-control", value: current_user.id, type: :hidden  %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary"%>
+  </div>
+<% end %>
