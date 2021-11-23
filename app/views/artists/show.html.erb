@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @artist.country %>
+</p>
+
+<p>
+  <strong>Song count:</strong>
+  <%= @artist.song_count %>
+</p>
+
+<p>
+  <strong>Album count:</strong>
+  <%= @artist.album_count %>
+</p>
+
+<p>
+  <strong>Other names:</strong>
+  <%= @artist.other_names %>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
